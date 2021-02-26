@@ -48,6 +48,10 @@ brew install git
     ```
     git status
     ```
+* git log : 현재 branch에서 commit 히스토리를 확인
+    ```
+    git log
+    ```
 * git switch "branch_name" : 원격 / 로컬 브랜치 선택하기
     ```
     git switch main
@@ -60,7 +64,7 @@ brew install git
     ```
     git branch -r
     ```
-* git branch -a : 로컬 브랜치 목록보기
+* git branch -a : 전체(로컬/원격) 브랜치 목록보기
     ```
     git branch -a
     ```
@@ -68,6 +72,10 @@ brew install git
     ```
     git branch -m feature/Android-10 feature/Android-100
     ```
+    ```
+    git branch -m feature/Android-100 // if you want change current branch name
+    ```
+
 * git branch -d "branch_name" : local에서 branch_name 브랜치 제거
     ```
     git branch -d feature/Android-100
@@ -76,6 +84,10 @@ brew install git
     ```
     git push origin --delete feature/Android-100
     ```
+    ```
+    git push origin :feature/Android-100
+    ```
+
 * git add "file_path" : 작업된 내용중 stage에 올릴 코드 선택
     ```
     git add ./src
@@ -83,6 +95,11 @@ brew install git
     git add .
     현재 폴더 기준으로 하위 파일들 변경점 stage로 이동
     ```
+* git add -p : 작업된 내용중 hunk단위로 구분하여 선택적으로 stage에 올릴 코드 선택 (권장)
+    ```
+    git add -p
+    ```
+    
 * git commit -m “commit_description” : stage에 올라간 파일 기준으로 commit 메세지 기록
     ```
     git commit -m "doc: readme update"
@@ -123,13 +140,17 @@ brew install git
     ```
     git stash or git stash save feature-signup
     ```
-* git stash apply : 마지막으로 임시저장된 작업코드는 유지한채 가져오기
+* git stash apply : 마지막으로 임시저장된 변경사항을 유지한 상태로 가져오기
     ```
     git stash apply
     ```
-* git stash pop : 마지막으로 임시저장한 작업코드를 제거함과 동시에 가져오기
+* git stash pop : 마지막으로 임시저장한 변경사항을 제거함과 동시에 가져오기
     ```
     git stash pop
+    ```
+* git stash drop "stash_name" : stash에 임시저장한 변경사항을 제거
+    ```
+    git stash drop stash_name
     ```
 * git rebase "branch_name" : 현재 브랜치의 base 되는 코드를 branch_name HEAD 기준으로 재배치
     ```
